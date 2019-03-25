@@ -23,7 +23,7 @@ public class MRTemplate extends Configured implements Tool{
      * map
      * TODO
      */
-    public static class TempleteMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+    public static class TemplateMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
         @Override
         public void setup(Context context) throws IOException, InterruptedException {
@@ -48,7 +48,7 @@ public class MRTemplate extends Configured implements Tool{
      * reduce
      * TODO
      */
-    public static class TempleteReduce extends Reducer<Text, IntWritable, Text, IntWritable> {
+    public static class TemplateReduce extends Reducer<Text, IntWritable, Text, IntWritable> {
         @Override
         public void setup(Context context) throws IOException, InterruptedException {
             //TODO
@@ -89,7 +89,7 @@ public class MRTemplate extends Configured implements Tool{
 
         //3.2) map
 
-        job.setMapperClass(TempleteMapper.class);
+        job.setMapperClass(TemplateMapper.class);
         //TODO
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
@@ -112,7 +112,7 @@ public class MRTemplate extends Configured implements Tool{
 
 
         //3.3) reduce
-        job.setReducerClass(TempleteReduce.class);
+        job.setReducerClass(TemplateReduce.class);
         //TODO
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
