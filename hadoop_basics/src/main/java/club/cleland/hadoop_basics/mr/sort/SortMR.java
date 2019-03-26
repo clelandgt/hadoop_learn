@@ -51,6 +51,9 @@ public class SortMR extends Configured implements Tool {
         protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
             System.out.print("Map keyIn: " + key + "Map keyOut: " + value);
             String[] strs = value.toString().split(",");
+
+            if(strs.length != 2) return;
+
             Text outputKey = new Text(strs[0]);
             IntWritable outputValue = new IntWritable(Integer.parseInt(strs[1]));
             context.write(outputKey, outputValue);
